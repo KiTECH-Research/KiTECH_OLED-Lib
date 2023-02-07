@@ -199,4 +199,8 @@ void KiTECH_OLED::show_error_message(int errorLed, String message) {
     print_at(0, 0, message);
     digitalWrite(errorLed, LOW);
     delay(500);
+    digitalWrite(errorLed, HIGH);
+    delay(500);
+    digitalWrite(errorLed, LOW);
+    delay(500);
 }
