@@ -11,7 +11,7 @@ void setup() {
         oled.print("setup FAIL");
     }
 
-    oled.draw_snow();
+    oled.draw_error();
 }
 
 void loop() {

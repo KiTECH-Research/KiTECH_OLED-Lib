@@ -41,6 +41,8 @@ public:
     void draw_cloudy_sun();
     void draw_rain();
     void draw_snow();
+
+    void draw_error();
 };
 
 #endif
