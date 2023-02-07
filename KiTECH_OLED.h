@@ -3,26 +3,12 @@
 
 #include "Arduino.h"
 
-/*
-bool d_setup();
-bool d_nastav();
-void d_print(String text);
-void d_vypis(String text);
-void d_print_at(int x, int y, String text);
-void d_vypis_na_poziciu(int x, int y, String text);
-void d_set_cursor(int x, int y);
-void d_nastav_kurzor(int x, int y);
-void d_clear();
-void d_vycisti();
-
-*/
 class KiTECH_OLED
 {
 private:
 
 public:
     KiTECH_OLED();
-    //KiTECH_OLED(int textSize);
     bool setup();
     bool nastav();
     void print(String text);
