@@ -71,7 +71,7 @@ void KiTECH_OLED::vypis_na_poziciu(int x, int y, String text) {
     print_at(x, y, text);
 }
 
-void KiTECH_OLED::draw_cloud() {
+void KiTECH_OLED::draw_cloud(int x, int y) {
     // 'cloud', 43x25px
     const unsigned char cloud [] PROGMEM = {
         0x00, 0x00, 0xfc, 0x00, 0x00, 0x00, 0x00, 0x03, 0xff, 0x00, 0x00, 0x00, 0x00, 0x07, 0xff, 0x80, 
@@ -87,12 +87,12 @@ void KiTECH_OLED::draw_cloud() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, cloud, 43, 25, WHITE);
+    display.drawBitmap(x, y, cloud, 43, 25, WHITE);
     
     display.display();
 }
 
-void KiTECH_OLED::draw_sun() {
+void KiTECH_OLED::draw_sun(int x, int y) {
     // 'sun', 30x30px
     const unsigned char sun [] PROGMEM = {
         0x00, 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 
@@ -106,12 +106,12 @@ void KiTECH_OLED::draw_sun() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, sun, 30, 30, WHITE);
+    display.drawBitmap(x, y, sun, 30, 30, WHITE);
     
     display.display();
 }
 
-void KiTECH_OLED::draw_cloudy_sun() {
+void KiTECH_OLED::draw_cloudy_sun(int x, int y) {
     // 'cloudy-sun', 30x30px
     const unsigned char cloudy_sun [] PROGMEM = {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 
@@ -125,12 +125,12 @@ void KiTECH_OLED::draw_cloudy_sun() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, cloudy_sun, 30, 30, WHITE);
+    display.drawBitmap(x, y, cloudy_sun, 30, 30, WHITE);
     
     display.display();
 }
 
-void KiTECH_OLED::draw_rain() {
+void KiTECH_OLED::draw_rain(int x, int y) {
     // 'rain', 25x30px
     const unsigned char rain [] PROGMEM = {
         0x00, 0xf8, 0x00, 0x00, 0x03, 0xfe, 0x00, 0x00, 0x07, 0xff, 0x00, 0x00, 0x07, 0xff, 0x00, 0x00, 
@@ -144,12 +144,12 @@ void KiTECH_OLED::draw_rain() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, rain, 30, 30, WHITE);
+    display.drawBitmap(x, y, rain, 30, 30, WHITE);
     
     display.display();
 }
 
-void KiTECH_OLED::draw_snow() {
+void KiTECH_OLED::draw_snow(int x, int y) {
     // 'snow', 25x30px
     const unsigned char snow [] PROGMEM = {
         0x00, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x00, 0x00, 0x03, 0xfe, 0x00, 0x00, 0x07, 0xff, 0x00, 0x00, 
@@ -163,12 +163,12 @@ void KiTECH_OLED::draw_snow() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, snow, 30, 30, WHITE);
+    display.drawBitmap(x, y, snow, 30, 30, WHITE);
     
     display.display();
 }
 
-void KiTECH_OLED::draw_error() {
+void KiTECH_OLED::draw_error(int x, int y) {
     // 'error', 30x30px
     const unsigned char error [] PROGMEM = {
         0x00, 0x1f, 0xe0, 0x00, 0x00, 0x7f, 0xf8, 0x00, 0x01, 0xe0, 0x1e, 0x00, 0x07, 0x80, 0x03, 0x80, 
@@ -182,7 +182,21 @@ void KiTECH_OLED::draw_error() {
     };
 
     display.clearDisplay();
-    display.drawBitmap(0, 0, error, 30, 30, WHITE);
+    display.drawBitmap(x, y, error, 30, 30, WHITE);
     
     display.display();
+}
+
+void KiTECH_OLED::show_error_message(int errorLed, String message) {
+    digitalWrite(errorLed, HIGH);
+    delay(500);
+    draw_error(49, 1);
+    digitalWrite(errorLed, LOW);
+    delay(500);
+    clear();
+    digitalWrite(errorLed, HIGH);
+    delay(500);
+    print_at(0, 0, message);
+    digitalWrite(errorLed, LOW);
+    delay(500);
 }

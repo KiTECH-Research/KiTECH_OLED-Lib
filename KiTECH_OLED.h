@@ -36,13 +36,15 @@ public:
     void set_text_size(int s);
     void nastav_velkost_textu(int s);
 
-    void draw_cloud();
-    void draw_sun();
-    void draw_cloudy_sun();
-    void draw_rain();
-    void draw_snow();
+    void draw_cloud(int x, int y);
+    void draw_sun(int x, int y);
+    void draw_cloudy_sun(int x, int y);
+    void draw_rain(int x, int y);
+    void draw_snow(int x, int y);
 
-    void draw_error();
+    void draw_error(int x, int y);
+
+    void show_error_message(int errorLed, String message);
 };
 
 #endif
