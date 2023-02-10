@@ -277,12 +277,23 @@ void KiTECH_OLED::print_full_weather_info(float t, String tDesc, String tUnit, f
 }
 
 void KiTECH_OLED::print_rgb_values(int r, int g, int b) {
+    clear();
     set_text_size(2);
-    print_at(5, 0, "R:");
-    print_at(30, 0, int_to_str(r));
-    print_at(5, 25, "G:");
-    print_at(30, 25, int_to_str(g));
-    print_at(5, 50, "B:");
-    print_at(30, 50, int_to_str(b));
+    set_cursor(5, 0);
+    display.print("R: ");
+    set_cursor(30, 0);
+    display.print(int_to_str(r));
+    
+    set_cursor(5, 25);
+    display.print("G: ");
+    set_cursor(30, 25);
+    display.print(int_to_str(g));
+
+    set_cursor(5, 50);
+    display.print("B: ");
+    set_cursor(30, 50);
+    display.print(int_to_str(b));
+    
+    display.display();
     set_text_size(1);
 }
