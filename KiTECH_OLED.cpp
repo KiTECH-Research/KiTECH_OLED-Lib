@@ -70,6 +70,24 @@ void KiTECH_OLED::vypis_na_poziciu(int x, int y, String text) {
     print_at(x, y, text);
 }
 
+String KiTECH_OLED::int_to_str(int n) {
+    String strValue = "";
+    char val[8];
+    dtostrf(n, 1, 0, val);
+    strValue.concat(val);
+
+    return strValue;
+}
+
+String KiTECH_OLED::float_to_str(float n) {
+    String strValue = "";
+    char val[8];
+    dtostrf(n, 1, 2, val);
+    strValue.concat(val);
+
+    return strValue;
+}
+
 void KiTECH_OLED::draw_cloud(int x, int y) {
     // 'cloud', 30x30px
     const unsigned char cloud [] PROGMEM = {
@@ -256,4 +274,15 @@ void KiTECH_OLED::print_full_weather_info(float t, String tDesc, String tUnit, f
     print_weather_info(p, pDesc, pUnit, x, y);
     delay(1000);
     clear();
+}
+
+void KiTECH_OLED::print_rgb_values(int r, int g, int b) {
+    set_text_size(2);
+    print_at(5, 0, "R:");
+    print_at(30, 0, int_to_str(r));
+    print_at(5, 25, "G:");
+    print_at(30, 25, int_to_str(g));
+    print_at(5, 50, "B:");
+    print_at(30, 50, int_to_str(b));
+    set_text_size(1);
 }
