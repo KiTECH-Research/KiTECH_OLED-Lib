@@ -7,14 +7,13 @@
 KiTECH_OLED::KiTECH_OLED() {}
 
 #define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 32
+#define SCREEN_HEIGHT 64
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 bool KiTECH_OLED::setup() {
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
         Serial.println("SSD1306 allocation failed");
-        for(;;);
         return false;
     }
     

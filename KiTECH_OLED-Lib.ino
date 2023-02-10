@@ -17,5 +17,30 @@ void setup() {
 }
 
 void loop() {
-    oled.show_error_message(errorLed, "Error pri citani teploty");
+  
+  oled.draw_cloud(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  oled.draw_sun(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  oled.draw_cloudy_sun(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  oled.draw_rain(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  oled.draw_snow(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  oled.draw_error(0, 0);
+  delay(1000);
+  oled.clear();
+  
+  //oled.show_error_message(errorLed, "Error pri citani teploty");
 }
