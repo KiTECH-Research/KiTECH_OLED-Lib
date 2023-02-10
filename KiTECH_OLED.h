@@ -27,10 +27,12 @@ public:
     void draw_cloudy_sun(int x, int y);
     void draw_rain(int x, int y);
     void draw_snow(int x, int y);
-
     void draw_error(int x, int y);
 
     void show_error_message(int errorLed, String message);
+
+    void print_weather_icon(float t, bool rain, int clouds, int x, int y);
+    //void print_weather_info(float t, float h, float p);
 };
 
 #endif
