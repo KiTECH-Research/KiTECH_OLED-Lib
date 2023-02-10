@@ -14,11 +14,10 @@ void setup() {
     } else {
         oled.print("setup FAIL");
     }
+    oled.clear();
 }
 
 void loop() {
-  
-  oled.print_weather_icon(-7.23, true, 2, 5, 5);
-  
+    oled.print_full_weather_info(-7.23, "Teplota", "*C", 25, "Vlhkost", "%", 125, "Tlak", "kPa", 40, 5, true, 2, 5, 5);
   //oled.show_error_message(errorLed, "Error pri citani teploty");
 }

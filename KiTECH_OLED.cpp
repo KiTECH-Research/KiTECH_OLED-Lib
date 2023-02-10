@@ -224,3 +224,36 @@ void KiTECH_OLED::print_weather_icon(float t, bool rain, int clouds, int x, int 
         }
     }
 }
+
+void KiTECH_OLED::print_weather_info(float value, String description, String unit, int x, int y) {
+    description.concat(" (");
+    description.concat(unit);
+    description.concat(")");
+    print_at(x, y, description);
+
+    String strValue = "";
+    char val[8];
+    dtostrf(value, 1, 2, val);
+    strValue.concat(val);
+
+    set_text_size(2);
+    print_at(x, y + 20, strValue);
+    set_text_size(1);
+}
+
+void KiTECH_OLED::print_full_weather_info(float t, String tDesc, String tUnit, float h, String hDesc, String hUnit, float p, String pDesc, String pUnit, int x, int y, bool rain, int clouds, int iconX, int iconY) {
+    print_weather_icon(t, rain, clouds, iconX, iconY);
+    print_weather_info(t, tDesc, tUnit, x, y);
+    delay(1000);
+    clear();
+
+    print_weather_icon(t, rain, clouds, iconX, iconY);
+    print_weather_info(h, hDesc, hUnit, x, y);
+    delay(1000);
+    clear();
+
+    print_weather_icon(t, rain, clouds, iconX, iconY);
+    print_weather_info(p, pDesc, pUnit, x, y);
+    delay(1000);
+    clear();
+}

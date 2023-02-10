@@ -32,7 +32,8 @@ public:
     void show_error_message(int errorLed, String message);
 
     void print_weather_icon(float t, bool rain, int clouds, int x, int y);
-    //void print_weather_info(float t, float h, float p);
+    void print_weather_info(float value, String description, String unit, int x, int y);
+    void print_full_weather_info(float t, String tDesc, String tUnit, float h, String hDesc, String hUnit, float p, String pDesc, String pUnit, int x, int y, bool rain, int clouds, int iconX, int iconY);
 };
 
 #endif
