@@ -11,8 +11,6 @@ void setup() {
 
     if (oled.setup()) {
         oled.print("setup OK");
-    } else {
-        oled.print("setup FAIL");
     }
     oled.clear();
 }
